@@ -24,9 +24,9 @@ This project demonstrates:
 
 - **Parallel computation** of the Mandelbrot set using Fortran and OpenMP.
 - **CPU scaling analysis** by adjusting the number of threads (`OMP_NUM_THREADS`) and measuring wall time.
-- **Best practices** for OpenMP: compute in parallel, then write output serially to avoid thread contention.
+- **Best practices** for OpenMP: computing in parallel, then writing output serially to avoid thread contention.
 
-This is a reproducible example suitable for learning **scientific computing, parallel programming, and performance optimization**.
+This is a small, reproducible example suitable for learning **scientific computing, parallel programming, and performance optimization**.
 
 ---
 
@@ -36,7 +36,7 @@ This is a reproducible example suitable for learning **scientific computing, par
 - `gfortran` compiler with OpenMP support
 - Terminal access
 
-Optional: `nano` or `vim` to edit the source code.
+Optional: `nano` or `vim` to edit the source code
 
 ---
 
@@ -70,6 +70,8 @@ export OMP_NUM_THREADS=4   # Use 4 threads (matches your physical cores)
 clock time : X.XXXs  wall time= Y.YYYs
 ```
 
+* **Wall time** is the actual elapsed time and shows the effect of parallel scaling.
+
 ---
 
 ## Output
@@ -89,8 +91,8 @@ Example snippet from `mand.dat`:
 
 ## Performance and Scaling
 
-* Tested on an Intel i7-8550U (4 cores, 8 threads)
-* Wall time decreases as `OMP_NUM_THREADS` increases, but best efficiency occurs when using **≤ physical cores**
+* Tested on an **Intel i7-8550U (4 cores, 8 threads)**
+* Wall time decreases as `OMP_NUM_THREADS` increases, but **best efficiency occurs when using ≤ physical cores**
 * Hyperthreading helps slightly beyond physical cores, but diminishing returns occur for too many threads.
 
 Example wall times:
@@ -111,6 +113,7 @@ Example wall times:
 mandelbrot-openmp/
 ├── mandf.f90          # Fortran source code (OpenMP parallel Mandelbrot)
 ├── README.md          # This file
+├── mandc.cc           # Optional C++ version
 ├── mand.dat           # Optional small example output
 └── plot.png           # Optional scaling plot
 ```
@@ -121,5 +124,9 @@ mandelbrot-openmp/
 
 This project is licensed under the **MIT License**. You are free to use, modify, and distribute this code with attribution.
 
+---
 
+
+
+```
 
